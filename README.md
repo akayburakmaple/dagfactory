@@ -96,6 +96,12 @@ Yukarıdaki figürde dagfactory docker ile run edilip 127.0.0.1:8080 portuna ba�
 
 DAG çalıştırıldığında, eğer bir problem çıkmadıysa tasklar yukarıdaki gibi yeşil olur. Çeşitli durumlara göre tasklar sağ üstteki renklerde belirtilen durumlarda görünebilir. Eğer yazılan projenin DAG'ı görünmüyorsa yukarıda belirtilen önemli kısımların tekrar gözden geçirilmesi tavsiye edilir.
 
+## Projelerin dagfactory'e Eklenmesi
+Her proje için gereklilikler farklı olabilir.
+ * Proje için gerekli olan kütüphanelerin kurulması için kütüphaneler ```requirements.txt``` dosyasına eklenmelidir.
+ * Bazı durumlarda dagfactory docker container'a eklenmesi gereken servis ve networkler olabilir. Bunun için ```docker-compose.yaml``` dosyasına dagfactory yapısını bozmayacak şekilde yeni ayarlar eklenebilir.
+ * Diğer ekstra ayarlar için yine genel yapı bozulmayacak şekilde Dockerfile düzenlenebilir.
+
 
 
   
