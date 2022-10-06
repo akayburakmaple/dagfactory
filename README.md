@@ -89,6 +89,13 @@ DAGS = [ main_dag ]
   *  Proje içerisinde herhangi bir config dosyası kullanılıyorsa, config dosyasının yolu tam olarak verilmelidir. Örnek olarak proje1 altinda example.yaml olduğu varsayılırsa bu dosyayı çağırmak için verilmesi gereken yol ```/opt/airflow/projects/project1/example.yaml``` olmalıdır.
 ## Örnek DAG Çalıştırma
 ![dag1](images/dag1.png "dag1")
-Yukarıdaki figürde dagfactory docker ile run edilip 127.0.0.1:8080 portuna bağlanıldı. Yukarıdaki kodbloğunun DAG'ına erişildi. Burada DAG içerisindeki tasklar görülebilir.
+
+Yukarıdaki figürde dagfactory docker ile run edilip 127.0.0.1:8080 portuna bağlanıldı. Yukarıdaki kod bloğunun DAG'ına erişildi. Burada DAG içerisindeki tasklar görülebilir. Yeşil daire ile işaretlenmiş run butonuna basılarak DAG tetiklenebilir.
+
+![dag2](images/dag2.png "dag2")
+
+DAG çalıştırıldığında, eğer bir problem çıkmadıysa tasklar yukarıdaki gibi yeşil olur. Çeşitli durumlara göre tasklar sağ üstteki renklerde belirtilen durumlarda görünebilir. Eğer yazılan projenin DAG'ı görünmüyorsa yukarıda belirtilen önemli kısımların tekrar gözden geçirilmesi tavsiye edilir.
+
+
 
   
