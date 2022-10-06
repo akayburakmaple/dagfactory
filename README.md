@@ -88,5 +88,7 @@ DAGS = [ main_dag ]
   * Burada **önemli olan** DAGS objesinin isminin değiştirilmemesidir ve unutulmamasıdır. MainDag.py içerisinde tüm DAGlar bu obje ismiyle çağırılırlar. Eğer DAGS objesi oluşturulmazsa airflow webserver'da projenin DAG'ı görülemez.
   *  Proje içerisinde herhangi bir config dosyası kullanılıyorsa, config dosyasının yolu tam olarak verilmelidir. Örnek olarak proje1 altinda example.yaml olduğu varsayılırsa bu dosyayı çağırmak için verilmesi gereken yol ```/opt/airflow/projects/project1/example.yaml``` olmalıdır.
 ## Örnek DAG Çalıştırma
+![dag1](images/dag1.png "dag1")
+Yukarıdaki figürde dagfactory docker ile run edilip 127.0.0.1:8080 portuna bağlanıldı. Yukarıdaki kodbloğunun DAG'ına erişildi. Burada DAG içerisindeki tasklar görülebilir.
 
   
