@@ -86,11 +86,11 @@ DAGS = [ main_dag ]
   * **Oluşturulan tasklar** belirlenen sıralamaya uygun şekilde tanımlandıktan sonra **main_dag**, yani bu proje için ana dag objesi, **```DAGS```** listesi içerisine eklenir.
   * **Birden fazla DAG varsa** aynı şekilde DAGS listesine main_dag yanına eklenebilir.
   * Burada **önemli olan** DAGS objesinin isminin değiştirilmemesidir ve unutulmamasıdır. MainDag.py içerisinde tüm DAGlar bu obje ismiyle çağırılırlar. Eğer DAGS objesi oluşturulmazsa airflow webserver'da projenin DAG'ı görülemez.
-  *  Proje içerisinde herhangi bir config dosyası kullanılıyorsa, config dosyasının yolu tam olarak verilmelidir. Örnek olarak proje1 altinda example.yaml olduğu varsayılırsa bu dosyayı çağırmak için verilmesi gereken yol ```/opt/airflow/projects/project1/example.yaml``` olmalıdır.
+  *  Proje içerisinde herhangi bir config dosyası kullanılıyorsa, config dosyasının yolu tam olarak verilmelidir. Örnek olarak proje1 altında example.yaml olduğu varsayılırsa bu dosyayı çağırmak için verilmesi gereken yol ```/opt/airflow/projects/project1/example.yaml``` olmalıdır.
 ## Örnek DAG Çalıştırma
 ![dag1](images/dag1.png "dag1")
 
-Yukarıdaki figürde dagfactory docker ile run edilip 127.0.0.1:8080 portuna bağlanıldı. Yukarıdaki kod bloğunun DAG'ına erişildi. Burada DAG içerisindeki tasklar görülebilir. Yeşil daire ile işaretlenmiş run butonuna basılarak DAG tetiklenebilir.
+Yukarıdaki figürde dagfactory, docker ile run edilip 127.0.0.1:8080 portuna bağlanıldı. Yukarıdaki kod bloğunun(project2) DAG'ına erişildi. Burada DAG içerisindeki tasklar görülebilir. Yeşil daire ile işaretlenmiş run butonuna basılarak DAG tetiklenebilir.
 
 ![dag2](images/dag2.png "dag2")
 
@@ -98,9 +98,11 @@ DAG çalıştırıldığında, eğer bir problem çıkmadıysa tasklar yukarıda
 
 ## Projelerin dagfactory'e Eklenmesi
 Her proje için gereklilikler farklı olabilir.
- * Proje için gerekli olan kütüphanelerin kurulması için kütüphaneler ```requirements.txt``` dosyasına eklenmelidir.
+ * Projeler, ```projects``` klasörünün altına kendi özel ismiyle, **belirtilen standartlara uygun olarak** eklenir.
+ * Projelerin gerekli kütüphanelerinin kurulması için kütüphaneler ```requirements.txt``` dosyasına eklenmelidir.
  * Bazı durumlarda dagfactory docker container'a eklenmesi gereken servis ve networkler olabilir. Bunun için ```docker-compose.yaml``` dosyasına dagfactory yapısını bozmayacak şekilde yeni ayarlar eklenebilir.
- * Diğer ekstra ayarlar için yine genel yapı bozulmayacak şekilde Dockerfile düzenlenebilir.
+ * Diğer ekstra ayarlar için yine genel yapı bozulmayacak şekilde ```Dockerfile``` düzenlenebilir.
+ 
 
 
 
