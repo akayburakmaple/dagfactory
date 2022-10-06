@@ -12,12 +12,12 @@ DAG, Airflow'un temel konseptidir. Proje içerisindeki tüm görevleri bir araya
 
 ## dagfactory Path Yapısı
 ![dagfactory path yapısı](images/dagfactory.png "dagfactory")
-#### Mavi dikdörtgen içerisindekiler klasör, diğerleri python script dosyalarıdır.
+#### Mavi dikdörtgen içerisindekiler klasör, diğerleri çeşitli dosyalardır.
 dagfactory genel yol yapısı yukarıdaki gibidir. dagfactory için yazılan projeler bu yapıya uygun olmalıdır. Dikkat edilmesi gerekenler:
   * dagfactory repo için herhangi bir DAG projesi yazılırken ana dosya yapısı değiştirilmemelidir. Yazılan tüm DAG projeleri ```projects``` klasörü altında toplanır ve projeler figürde görüldüğü üzere ```project1``` klasörü yapısında olduğu gibi tasarlanmalıdır.
-  * Figürde görüldüğü üzere oluşturulan her klasör için bir **init** scripti eklenmesi gerekir,
-  * **MainDag.py** scripti, eklenen diğer projeleri etkilememek adına **değiştirilmemesi** gerekmektedir,
-  * Herbir proje için yazılan **DAG scriptlerinin** uzantısı ortak olarak **DAG.py** olmalıdır; çünkü MainDag.py, bu isim ile tüm projelerin dag scriptlerini çağırır,
+  * Figürde görüldüğü üzere oluşturulan her klasör için bir **init** scripti eklenmesi gerekir.
+  * **MainDag.py** scripti, eklenen diğer projeleri etkilememek adına **değiştirilmemesi** gerekmektedir.
+  * Herbir proje için yazılan **DAG scriptlerinin** uzantısı ortak olarak **DAG.py** olmalıdır; çünkü MainDag.py, bu isim ile tüm projelerin dag scriptlerini çağırır.
   * **Scripts** klasörünün altında istenilen klasör ve dosya yapısı kullanılabilir; buradaki tüm script, dosya ve klasörler proje için gerekli sınıf, fonksiyon ve parametreleri içerir; bunun yanında her klasör için gerekli olan **init** scriptinin unutulmaması gerekir.
   
  ## dagfactory Run
