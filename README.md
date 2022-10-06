@@ -14,6 +14,7 @@ DAG, Airflow'un temel konseptidir. Proje içerisindeki tüm görevleri bir araya
 ![dagfactory path yapısı](images/dagfactory.png "dagfactory")
 #### Mavi dikdörtgen içerisindekiler klasör, diğerleri python script dosyalarıdır.
 dagfactory genel yol yapısı yukarıdaki gibidir. dagfactory için yazılan projeler bu yapıya uygun olmalıdır. Dikkat edilmesi gerekenler:
+  * dagfactory repo için herhangi bir DAG projesi yazılırken ana dosya yapısı değiştirilmemelidir. Yazılan tüm DAG projeleri ```projects``` klasörü altında toplanır ve projeler figürde görüldüğü üzere ```project1``` klasörü yapısında olduğu gibi tasarlanmalıdır.
   * Figürde görüldüğü üzere oluşturulan her klasör için bir **init** scripti eklenmesi gerekir,
   * **MainDag.py** scripti, eklenen diğer projeleri etkilememek adına **değiştirilmemesi** gerekmektedir,
   * Herbir proje için yazılan **DAG scriptlerinin** uzantısı ortak olarak **DAG.py** olmalıdır; çünkü MainDag.py, bu isim ile tüm projelerin dag scriptlerini çağırır,
@@ -81,10 +82,11 @@ task3= PythonOperator(
 DAGS = [ main_dag ]
 ```
   * **Projelerdeki ana DAG yapısı** yukarıdaki gibidir.
-  * DAG scripti yazılırken görüldüğü üzere **importlar ana python yolu kullanarak** yapılmalıdır.
+  * DAG scripti yazılırken görüldüğü üzere **importlar ana python yolu kullanılarak** yapılmalıdır.
   * **Oluşturulan tasklar** belirlenen sıralamaya uygun şekilde tanımlandıktan sonra **main_dag**, yani bu proje için ana dag objesi, **```DAGS```** listesi içerisine eklenir.
   * **Birden fazla DAG varsa** aynı şekilde DAGS listesine main_dag yanına eklenebilir.
   * Burada **önemli olan** DAGS objesinin isminin değiştirilmemesidir ve unutulmamasıdır. MainDag.py içerisinde tüm DAGlar bu obje ismiyle çağırılırlar. Eğer DAGS objesi oluşturulmazsa airflow webserver'da projenin DAG'ı görülemez.
   *  Proje içerisinde herhangi bir config dosyası kullanılıyorsa, config dosyasının yolu tam olarak verilmelidir. Örnek olarak proje1 altinda example.yaml olduğu varsayılırsa bu dosyayı çağırmak için verilmesi gereken yol ```/opt/airflow/projects/project1/example.yaml``` olmalıdır.
+## Örnek DAG Çalıştırma
 
   
